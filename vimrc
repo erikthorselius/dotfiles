@@ -1,6 +1,8 @@
 call pathogen#infect()
 set nocompatible          " We're running Vim, not Vi!
-syntax on                 " Enable syntax highlighting
+syntax enable
+set background=dark
+colorscheme solarized
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 " Load matchit (% to bounce from do to end, etc.)
 runtime! macros/matchit.vim
@@ -17,3 +19,12 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
+
+
+nnoremap <A-j> :m+<CR>==
+nnoremap <A-k> :m-2<CR>==
+inoremap <A-j> <Esc>:m+<CR>==gi
+inoremap <A-k> <Esc>:m-2<CR>==gi
+vnoremap <A-j> :m'>+<CR>gv=gv
+vnoremap <A-k> :m-2<CR>gv=gv
+:nmap <C-N><C-N> :set invnumber<CR>
