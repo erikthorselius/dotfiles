@@ -1,4 +1,5 @@
 alias cookiecurl='curl -b cookies.txt -c cookies.txt '
+alias less='vim -u /usr/share/vim/vim73/macros/less.vim'
 export LC_CTYPE=sv_SE.UTF-8
 export EDITOR=/usr/bin/vim
 export CC=gcc-4.2
