@@ -6,8 +6,10 @@ export EDITOR=/usr/bin/vim
 export CC=gcc-4.2
 export PATH="$PATH:~/Applications/maven/bin:/opt/app/instance/current/bin"
 source ~/.local/bin/bashmarks.sh
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
-export ANDROID_HOME="/usr/local/Cellar/android-sdk/r18"
+#export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
+#export ANDROID_HOME="/usr/local/Cellar/android-sdk/r18"
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20
+export ANDROID_HOME="/usr/local/Cellar/android-sdk/r20"
 export NODE_PATH="/usr/local/lib/node_modules"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 if [ -f `brew --prefix`/etc/bash_completion ]; then
