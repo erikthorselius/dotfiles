@@ -1,7 +1,7 @@
 call pathogen#infect()
 set nocompatible          " We're running Vim, not Vi!
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 " Load matchit (% to bounce from do to end, etc.)
@@ -28,3 +28,4 @@ inoremap <A-k> <Esc>:m-2<CR>==gi
 vnoremap <A-j> :m'>+<CR>gv=gv
 vnoremap <A-k> :m-2<CR>gv=gv
 :nmap <C-N><C-N> :set invnumber<CR>
+set pastetoggle=<F2>
