@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vim-cucumber"]
 	path = vim/bundle/vim-cucumber
 	url = https://github.com/tpope/vim-cucumber
+[submodule "vim/bundle/VimClojure"]
+	path = vim/bundle/VimClojure
+	url = git://github.com/vim-scripts/VimClojure.git
