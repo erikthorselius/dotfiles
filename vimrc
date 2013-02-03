@@ -21,6 +21,14 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 highlight Pmenu ctermbg=238 gui=bold
 
 
+let vimclojure#HighlightBuiltins=1
+let vimclojure#ParenRainbow = 1
+let vimclojure#WantNailgun = 1
+let vimclojure#FuzzyIndent=1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#NailgunClient = $HOME . "/.bin/ng"
 nnoremap <A-j> :m+<CR>==
 nnoremap <A-k> :m-2<CR>==
 inoremap <A-j> <Esc>:m+<CR>==gi
@@ -29,3 +37,4 @@ vnoremap <A-j> :m'>+<CR>gv=gv
 vnoremap <A-k> :m-2<CR>gv=gv
 :nmap <C-N><C-N> :set invnumber<CR>
 set pastetoggle=<F2>
+set mouse=a
