@@ -26,6 +26,15 @@ highlight Pmenu ctermbg=238 gui=bold
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+let vimclojure#HighlightBuiltins=1
+let vimclojure#ParenRainbow = 1
+let vimclojure#WantNailgun = 1
+let vimclojure#FuzzyIndent=1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#NailgunClient = $HOME . "/.bin/ng"
 "Move lines up and down
 nnoremap <A-j> :m+<CR>==
 nnoremap <A-k> :m-2<CR>==
@@ -35,4 +44,6 @@ vnoremap <A-j> :m'>+<CR>gv=gv
 vnoremap <A-k> :m-2<CR>gv=gv
 :nmap <C-N><C-N> :set invnumber<CR>
 set pastetoggle=<F2>
+
 set number
+set mouse=a

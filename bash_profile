@@ -17,6 +17,7 @@ export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
 export NODE_PATH="/usr/local/lib/node_modules"
 export JAVA_HOME=/Library/Java/Home
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
+export PATH=$HOME/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
