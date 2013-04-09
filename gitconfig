@@ -2,8 +2,13 @@
 	name = Erik Thorselius
 	email = erik.thorselius@gmail.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+        branch = auto
+        diff = auto
+        interactive = auto
+        status = auto
 [push]
 	default = simple
+[alias]
+        lol = log --graph --decorate --pretty=oneline --abbrev-commit
+        lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
