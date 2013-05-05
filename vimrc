@@ -1,5 +1,6 @@
 call pathogen#infect()
 set nocompatible          " We're running Vim, not Vi!
+" load indent file for the current filetype
 syntax enable
 set background=light
 colorscheme solarized
@@ -10,7 +11,7 @@ augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
   " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml,jade set ai sw=2 sts=2 et
 augroup END
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -38,3 +39,4 @@ vnoremap <A-k> :m-2<CR>gv=gv
 :nmap <C-N><C-N> :set invnumber<CR>
 set pastetoggle=<F2>
 set mouse=a
+set clipboard=unnamed
