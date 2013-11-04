@@ -1,17 +1,13 @@
 alias cookiecurl='curl -b cookies.txt -c cookies.txt '
-#alias cd="pushd $@ > /dev/null"
 #alias less='vim -u /usr/share/vim/vim73/macros/less.vim'
 export LC_CTYPE=sv_SE.UTF-8
 export EDITOR=/usr/bin/vim
-#export PATH="$PATH:$HOME/android-sdk-mac_x86/tools:$HOME/android-sdk-mac_x86/platform-tools"
 export CC=gcc-4.2
 export PATH="$PATH:~/Applications/maven/bin:/opt/app/instance/current/bin"
 export PATH="$PATH:/usr/local/share/npm/bin"
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
 export PATH="$PATH:~/Applications/maven/bin:/opt/app/instance/current/bin"
 source ~/.local/bin/bashmarks.sh
-#export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
-#export ANDROID_HOME="/usr/local/Cellar/android-sdk/r18"
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
 export NODE_PATH="/usr/local/lib/node_modules"
@@ -49,5 +45,13 @@ PS_GIT="$YELLOW\$PS_GIT_BRANCH"
 PS_TIME="\[\033[\$((COLUMNS-10))G\] $RED[\t]"
 export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
 
-
 [[ -s /Users/erikthorselius/.nvm/nvm.sh ]] && . /Users/erikthorselius/.nvm/nvm.sh # This loads NVM
+
+if [ "$TERM" != "dumb" ]; then
+    export LS_OPTIONS='--color=auto'
+    eval `gdircolors ~/.dircolors`
+fi
+
+alias ls='gls $LS_OPTIONS -hF'
+alias ll='gls $LS_OPTIONS -lhF'
+alias l='gls $LS_OPTIONS -lAhF'
