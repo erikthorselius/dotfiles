@@ -3,7 +3,13 @@ set nocompatible          " We're running Vim, not Vi!
 syntax on
 set background=light
 colorscheme solarized
-filetype plugin indent on " Enable filetype-specific indenting and plugins
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+set expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2
+set autoindent
+
 " Load matchit (% to bounce from do to end, etc.)
 runtime! macros/matchit.vim
 augroup myfiletypes
