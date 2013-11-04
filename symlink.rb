@@ -7,5 +7,6 @@ home = File.expand_path('~')
 Dir['*'].each do |file|
   next if file =~ /install/
   target = File.join(home, ".#{file}")
+  next if File.symlink? target
   `ln -s #{File.expand_path file} #{target}`
 end
