@@ -1,22 +1,19 @@
 alias cookiecurl='curl -b cookies.txt -c cookies.txt '
-#alias cd="pushd $@ > /dev/null"
 #alias less='vim -u /usr/share/vim/vim73/macros/less.vim'
 export LC_CTYPE=sv_SE.UTF-8
 export EDITOR=/usr/bin/vim
-#export PATH="$PATH:$HOME/android-sdk-mac_x86/tools:$HOME/android-sdk-mac_x86/platform-tools"
 export CC=gcc-4.2
 export PATH="$PATH:~/Applications/maven/bin:/opt/app/instance/current/bin"
 export PATH="$PATH:/usr/local/share/npm/bin"
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
 export PATH="$PATH:~/Applications/maven/bin:/opt/app/instance/current/bin"
 source ~/.local/bin/bashmarks.sh
-#export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
-#export ANDROID_HOME="/usr/local/Cellar/android-sdk/r18"
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r21.0.1
-export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.0.1"
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
+export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
 export NODE_PATH="/usr/local/lib/node_modules"
-export PATH="$PATH:/usr/local/share/npm/bin"
-export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_12.jdk/Contents/Home
+export GRADLE_HOME=/usr/local/Cellar/gradle/1.5/libexec
+export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.0.1/libexec
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
 export PATH=$HOME/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -47,4 +44,14 @@ PS_INFO="$GREEN\u@\h$RESET:$BLUE\w"
 PS_GIT="$YELLOW\$PS_GIT_BRANCH"
 PS_TIME="\[\033[\$((COLUMNS-10))G\] $RED[\t]"
 export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
-set -o vi
+
+[[ -s /Users/erikthorselius/.nvm/nvm.sh ]] && . /Users/erikthorselius/.nvm/nvm.sh # This loads NVM
+
+if [ "$TERM" != "dumb" ]; then
+    export LS_OPTIONS='--color=auto'
+    eval `gdircolors ~/.dircolors`
+fi
+
+alias ls='gls $LS_OPTIONS -hF'
+alias ll='gls $LS_OPTIONS -lhF'
+alias l='gls $LS_OPTIONS -lAhF'
