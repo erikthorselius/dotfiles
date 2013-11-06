@@ -11,7 +11,7 @@ source ~/.local/bin/bashmarks.sh
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
 export NODE_PATH="/usr/local/lib/node_modules"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_12.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/Home
 export GRADLE_HOME=/usr/local/Cellar/gradle/1.5/libexec
 export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.0.1/libexec
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
