@@ -5,7 +5,7 @@ function should_ignore {
   ignore=("README" "symlink.rb" "symlink.sh")
   for ignore_file in "${ignore[@]}"
   do
-    if [ "$ignore_file" == "$1" ]; then return 0 fi
+    if [ "$ignore_file" == "$1" ]; then return 0; fi
   done
   return 1 
 }
