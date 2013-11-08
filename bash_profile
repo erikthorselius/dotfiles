@@ -1,3 +1,10 @@
+platform='unknown'
+unamestr=$(uname)
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='darwin'
+fi
 alias cookiecurl='curl -b cookies.txt -c cookies.txt '
 #alias less='vim -u /usr/share/vim/vim73/macros/less.vim'
 export LC_CTYPE=sv_SE.UTF-8
@@ -17,9 +24,6 @@ export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.0.1/libexec
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
 export PATH=$HOME/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
 
 # A two-line colored Bash prompt (PS1) with Git branch and a line decoration
 # which adjusts automatically to the width of the terminal.
@@ -47,27 +51,21 @@ export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
 
 [[ -s /Users/erikthorselius/.nvm/nvm.sh ]] && . /Users/erikthorselius/.nvm/nvm.sh # This loads NVM
 
-platform='unknown'
-unamestr=$(uname)
-if [[ "$unamestr" == 'Linux' ]]; then
-   platform='linux'
-elif [[ "$unamestr" == 'Darwin' ]]; then
-   platform='darwin'
+if [ $platform == 'darwin' ] && [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
 fi
+
 if [[ $platform == 'linux' ]]; then
-  if [ "$TERM" != "dumb" ]; then
-      export LS_OPTIONS='--color=auto'
-      eval `dircolors ~/.dircolors`
-  fi
-  alias ls='ls $LS_OPTIONS -hF'
-  alias ll='ls $LS_OPTIONS -lhF'
-  alias l='ls $LS_OPTIONS -lAhF'
+  DIRCOLORS=dircolors
+  LS_CMD=ls
 elif [[ $platform == 'darwin' ]]; then
-  if [ "$TERM" != "dumb" ]; then
-      export LS_OPTIONS='--color=auto'
-      eval `gdircolors ~/.dircolors`
-  fi
-  alias ls='gls $LS_OPTIONS -hF'
-  alias ll='gls $LS_OPTIONS -lhF'
-  alias l='gls $LS_OPTIONS -lAhF'
+  DIRCOLORS=gdircolors
+  LS_CMD=gls
 fi
+if [ "$TERM" != "dumb" ]; then
+  export LS_OPTIONS='--color=auto'
+  eval $($DIRCOLORS ~/.dircolors)
+fi
+alias ls='$LS_CMD $LS_OPTIONS -hF'
+alias ll='$LS_CMD $LS_OPTIONS -lhF'
+alias l='$LS_CMD $LS_OPTIONS -lAhF'
