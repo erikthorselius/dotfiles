@@ -47,11 +47,27 @@ export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
 
 [[ -s /Users/erikthorselius/.nvm/nvm.sh ]] && . /Users/erikthorselius/.nvm/nvm.sh # This loads NVM
 
-if [ "$TERM" != "dumb" ]; then
-    export LS_OPTIONS='--color=auto'
-    eval `gdircolors ~/.dircolors`
+platform='unknown'
+unamestr=$(uname)
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='darwin'
 fi
-
-alias ls='gls $LS_OPTIONS -hF'
-alias ll='gls $LS_OPTIONS -lhF'
-alias l='gls $LS_OPTIONS -lAhF'
+if [[ $platform == 'linux' ]]; then
+  if [ "$TERM" != "dumb" ]; then
+      export LS_OPTIONS='--color=auto'
+      eval `dircolors ~/.dircolors`
+  fi
+  alias ls='ls $LS_OPTIONS -hF'
+  alias ll='ls $LS_OPTIONS -lhF'
+  alias l='ls $LS_OPTIONS -lAhF'
+elif [[ $platform == 'darwin' ]]; then
+  if [ "$TERM" != "dumb" ]; then
+      export LS_OPTIONS='--color=auto'
+      eval `gdircolors ~/.dircolors`
+  fi
+  alias ls='gls $LS_OPTIONS -hF'
+  alias ll='gls $LS_OPTIONS -lhF'
+  alias l='gls $LS_OPTIONS -lAhF'
+fi
