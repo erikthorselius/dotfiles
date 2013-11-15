@@ -22,6 +22,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/Home
 export GRADLE_HOME=/usr/local/Cellar/gradle/1.5/libexec
 export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.0.1/libexec
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
+export FORWARD_DOCKER_PORTS=true
 export PATH=$HOME/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
