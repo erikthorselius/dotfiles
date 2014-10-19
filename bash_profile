@@ -10,23 +10,17 @@ alias cookiecurl='curl -b cookies.txt -c cookies.txt '
 export LC_CTYPE=sv_SE.UTF-8
 export EDITOR=/usr/bin/vim
 export CC=gcc-4.2
-export PATH="$PATH:~/Applications/maven/bin:/opt/app/instance/current/bin"
-export PATH="$PATH:/usr/local/share/npm/bin"
+export PATH=$HOME/bin:$PATH
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
-export PATH="$PATH:~/Applications/maven/bin:/opt/app/instance/current/bin"
 source ~/.local/bin/bashmarks.sh
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
 export NODE_PATH="/usr/local/lib/node_modules"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/Home
-export GRADLE_HOME=/usr/local/Cellar/gradle/1.5/libexec
-export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.0.1/libexec
-export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
 export DOCKER_HOST=tcp://$(/usr/local/bin/boot2docker ip 2>/dev/null):2376
 export DOCKER_CERT_PATH=/Users/erikthorselius/.docker/boot2docker-vm
-export PATH=$HOME/bin:$PATH
-export RBENV_ROOT=/usr/local/var/rbenv
 export HISTSIZE=20000
+export RBENV_ROOT=/usr/local/var/rbenv
 shopt -s histappend
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
