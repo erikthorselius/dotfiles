@@ -28,7 +28,9 @@ export RBENV_ROOT=/usr/local/var/rbenv
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+### Intranätet
+export WORKON_HOME=$HOME/.virtualenvs
+###
 
 # A two-line colored Bash prompt (PS1) with Git branch and a line decoration
 # which adjusts automatically to the width of the terminal.
@@ -53,8 +55,6 @@ PS_INFO="$GREEN\u@\h$RESET:$BLUE\w"
 PS_GIT="$YELLOW\$PS_GIT_BRANCH"
 PS_TIME="\[\033[\$((COLUMNS-10))G\] $RED[\t]"
 export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
-
-[[ -s /Users/erikthorselius/.nvm/nvm.sh ]] && . /Users/erikthorselius/.nvm/nvm.sh # This loads NVM
 
 if [ $platform == 'darwin' ] && [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
