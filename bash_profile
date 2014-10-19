@@ -22,9 +22,12 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/Home
 export GRADLE_HOME=/usr/local/Cellar/gradle/1.5/libexec
 export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.0.1/libexec
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
-export FORWARD_DOCKER_PORTS=true
+export DOCKER_HOST=tcp://$(/usr/local/bin/boot2docker ip 2>/dev/null):2376
+export DOCKER_CERT_PATH=/Users/erikthorselius/.docker/boot2docker-vm
 export PATH=$HOME/bin:$PATH
 export RBENV_ROOT=/usr/local/var/rbenv
+export HISTSIZE=20000
+shopt -s histappend
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
