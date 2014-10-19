@@ -18,7 +18,8 @@ export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
 export NODE_PATH="/usr/local/lib/node_modules"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/Home
 export DOCKER_HOST=tcp://$(/usr/local/bin/boot2docker ip 2>/dev/null):2376
-export DOCKER_CERT_PATH=/Users/erikthorselius/.docker/boot2docker-vm
+export DOCKER_CERT_PATH=~/.docker/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
 export HISTSIZE=20000
 export RBENV_ROOT=/usr/local/var/rbenv
 shopt -s histappend
