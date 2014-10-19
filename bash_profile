@@ -24,6 +24,10 @@ export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.0.1/libexec
 export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m"
 export FORWARD_DOCKER_PORTS=true
 export PATH=$HOME/bin:$PATH
+export RBENV_ROOT=/usr/local/var/rbenv
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # A two-line colored Bash prompt (PS1) with Git branch and a line decoration
