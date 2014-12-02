@@ -72,3 +72,5 @@ fi
 alias ls='$LS_CMD $LS_OPTIONS -hF'
 alias ll='$LS_CMD $LS_OPTIONS -lhF'
 alias l='$LS_CMD $LS_OPTIONS -lAhF'
+
+export PATH="/Applications/Zed.app/bin":$PATH
