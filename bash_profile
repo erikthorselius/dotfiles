@@ -11,8 +11,7 @@ export LC_CTYPE=sv_SE.UTF-8
 export EDITOR=/usr/bin/vim
 export CC=gcc-4.2
 export PATH=$HOME/bin:$PATH
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=${JAVA_HOME}/bin:$PATH
+#export JAVA_HOME=$(/usr/libexec/java_home)
 source ~/.local/bin/bashmarks.sh
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
