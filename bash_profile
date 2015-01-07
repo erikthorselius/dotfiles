@@ -11,7 +11,8 @@ export LC_CTYPE=sv_SE.UTF-8
 export EDITOR=/usr/bin/vim
 export CC=gcc-4.2
 export PATH=$HOME/bin:$PATH
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r18
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=${JAVA_HOME}/bin:$PATH
 source ~/.local/bin/bashmarks.sh
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
@@ -73,8 +74,6 @@ alias ll='$LS_CMD $LS_OPTIONS -lhF'
 alias l='$LS_CMD $LS_OPTIONS -lAhF'
 
 export PATH="/Applications/Zed.app/bin":$PATH
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=${JAVA_HOME}/bin:$PATH
 if [ -f ~/.aws/bash_env_credentials ]; then
   . ~/.aws/bash_env_credentials
 fi
