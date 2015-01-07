@@ -74,7 +74,7 @@ alias l='$LS_CMD $LS_OPTIONS -lAhF'
 
 export PATH="/Applications/Zed.app/bin":$PATH
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=$(/usr/libexec/java_home)/bin:$PATH
+export PATH=${JAVA_HOME}/bin:$PATH
 if [ -f ~/.aws/bash_env_credentials ]; then
   . ~/.aws/bash_env_credentials
 fi
