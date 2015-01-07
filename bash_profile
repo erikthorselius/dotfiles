@@ -16,7 +16,6 @@ source ~/.local/bin/bashmarks.sh
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
 export NODE_PATH="/usr/local/lib/node_modules"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/Home
 export DOCKER_HOST=tcp://$(/usr/local/bin/boot2docker ip 2>/dev/null):2376
 export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
@@ -74,7 +73,8 @@ alias ll='$LS_CMD $LS_OPTIONS -lhF'
 alias l='$LS_CMD $LS_OPTIONS -lAhF'
 
 export PATH="/Applications/Zed.app/bin":$PATH
-
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$(/usr/libexec/java_home)/bin:$PATH
 if [ -f ~/.aws/bash_env_credentials ]; then
   . ~/.aws/bash_env_credentials
 fi
