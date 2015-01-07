@@ -15,7 +15,7 @@ source ~/.local/bin/bashmarks.sh
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
 export NODE_PATH="/usr/local/lib/node_modules"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Hom"
 export DOCKER_HOST=tcp://$(/usr/local/bin/boot2docker ip 2>/dev/null):2376
 export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
