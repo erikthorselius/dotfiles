@@ -23,7 +23,7 @@ export HISTSIZE=20000
 export RBENV_ROOT=/usr/local/var/rbenv
 shopt -s histappend
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then eval echo "hit"; "$(rbenv init -)"; fi
 
 ### Intranätet
 export WORKON_HOME=$HOME/.virtualenvs
