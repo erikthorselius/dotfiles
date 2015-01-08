@@ -76,4 +76,4 @@ export PATH="/Applications/Zed.app/bin":$PATH
 if [ -f ~/.aws/bash_env_credentials ]; then
   . ~/.aws/bash_env_credentials
 fi
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/var/rbenv/versions/2.2.0/bin:$PATH"
