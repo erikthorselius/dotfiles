@@ -77,3 +77,5 @@ export PATH="/Applications/Zed.app/bin":$PATH
 export PATH="/usr/local/var/rbenv/versions/2.2.0/bin:$PATH"
 export PATH="/opt/chefdk/bin:$PATH"
 
+
+export PATH="/Applications/Zed.app/bin":$PATH
