@@ -73,9 +73,9 @@ alias ll='$LS_CMD $LS_OPTIONS -lhF'
 alias l='$LS_CMD $LS_OPTIONS -lAhF'
 
 export PATH="/Applications/Zed.app/bin":$PATH
-if [ -f ~/.aws/bash_env_credentials ]; then
-  #. ~/.aws/bash_env_credentials
-fi
+#if [ -f ~/.aws/bash_env_credentials ]; then
+#  . ~/.aws/bash_env_credentials
+#fi
 
 export PATH="/usr/local/var/rbenv/versions/2.2.0/bin:$PATH"
 export PATH="/opt/chefdk/bin:$PATH"
