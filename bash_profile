@@ -79,5 +79,3 @@ export PATH="/opt/chefdk/bin:$PATH"
 
 
 export PATH="/Applications/Zed.app/bin":$PATH
-
-export PATH="/Applications/Zed.app/bin":$PATH
