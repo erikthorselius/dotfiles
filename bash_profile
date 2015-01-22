@@ -75,3 +75,6 @@ alias ls='$LS_CMD $LS_OPTIONS -hF'
 alias ll='$LS_CMD $LS_OPTIONS -lhF'
 alias l='$LS_CMD $LS_OPTIONS -lAhF'
 
+if [ -f ~/.aws/env_file ]; then
+  source ~/.aws/env_file
+fi
