@@ -26,11 +26,11 @@ export DOCKER_TLS_VERIFY=1
 export HISTSIZE=20000
 export RBENV_ROOT=/usr/local/var/rbenv
 export PATH="/usr/local/var/rbenv/versions/2.2.0/bin:$PATH"
-export PATH="/opt/chefdk/bin:$PATH"
 export PATH="/Applications/Zed.app/bin":$PATH
 shopt -s histappend
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="/opt/chefdk/bin:$PATH"
 
 ### Intranätet
 export WORKON_HOME=$HOME/.virtualenvs
@@ -64,6 +64,9 @@ if [ $platform == 'darwin' ] && [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
+if [ -f ~/.aws/env ]; then
+  source ~/.aws/env
+fi
 if [[ $platform == 'linux' ]]; then
   LS_CMD=ls
   export LS_OPTIONS='--color=auto'
