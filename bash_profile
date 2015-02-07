@@ -66,16 +66,17 @@ fi
 if [[ $platform == 'linux' ]]; then
   DIRCOLORS=dircolors
   LS_CMD=ls
+  export LS_OPTIONS='--color=auto'
 elif [[ $platform == 'Freebsd' ]]; then
   DIRCOLORS=dircolors
   LS_CMD=ls
+  export LS_OPTIONS='--color=auto'
 fi
 elif [[ $platform == 'darwin' ]]; then
   DIRCOLORS=gdircolors
   LS_CMD=gls
 fi
 if [ "$TERM" != "dumb" ]; then
-  export LS_OPTIONS='--color=auto'
   eval $($DIRCOLORS ~/.dircolors)
 fi
 alias ls='$LS_CMD $LS_OPTIONS -hF'
