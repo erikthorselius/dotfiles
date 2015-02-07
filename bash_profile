@@ -66,7 +66,7 @@ if [[ $platform == 'linux' ]]; then
   LS_CMD=ls
   export LS_OPTIONS='--color=auto'
   eval $(dircolors ~/.dircolors)
-elif [[ $platform == 'Freebsd' ]]; then
+elif [[ $platform == 'freebsd' ]]; then
   DIRCOLORS=dircolors
   LS_CMD=ls
   export LS_OPTIONS='-G'
