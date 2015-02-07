@@ -66,6 +66,10 @@ fi
 if [[ $platform == 'linux' ]]; then
   DIRCOLORS=dircolors
   LS_CMD=ls
+elif [[ $platform == 'Freebsd' ]]; then
+  DIRCOLORS=dircolors
+  LS_CMD=ls
+fi
 elif [[ $platform == 'darwin' ]]; then
   DIRCOLORS=gdircolors
   LS_CMD=gls
