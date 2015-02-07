@@ -70,11 +70,12 @@ if [[ $platform == 'linux' ]]; then
 elif [[ $platform == 'Freebsd' ]]; then
   DIRCOLORS=dircolors
   LS_CMD=ls
-  export LS_OPTIONS='--color=auto'
+  export LS_OPTIONS='-G'
 fi
 elif [[ $platform == 'darwin' ]]; then
   DIRCOLORS=gdircolors
   LS_CMD=gls
+  export LS_OPTIONS='--color=auto'
 fi
 if [ "$TERM" != "dumb" ]; then
   eval $($DIRCOLORS ~/.dircolors)
