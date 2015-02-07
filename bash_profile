@@ -4,7 +4,6 @@ if [[ "$unamestr" == 'Linux' ]]; then
    platform='linux'
 elif [[ "$unamestr" == 'FreeBSD' ]]; then
    platform='freebsd'
-fi
 elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='darwin'
 fi
@@ -71,7 +70,6 @@ elif [[ $platform == 'Freebsd' ]]; then
   DIRCOLORS=dircolors
   LS_CMD=ls
   export LS_OPTIONS='-G'
-fi
 elif [[ $platform == 'darwin' ]]; then
   DIRCOLORS=gdircolors
   LS_CMD=gls
