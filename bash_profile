@@ -63,20 +63,19 @@ if [ $platform == 'darwin' ] && [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 if [[ $platform == 'linux' ]]; then
-  DIRCOLORS=dircolors
   LS_CMD=ls
   export LS_OPTIONS='--color=auto'
+  eval $(dircolors ~/.dircolors)
 elif [[ $platform == 'Freebsd' ]]; then
   DIRCOLORS=dircolors
   LS_CMD=ls
   export LS_OPTIONS='-G'
 elif [[ $platform == 'darwin' ]]; then
-  DIRCOLORS=gdircolors
   LS_CMD=gls
   export LS_OPTIONS='--color=auto'
+  eval $(gdircolors ~/.dircolors)
 fi
 if [ "$TERM" != "dumb" ]; then
-  eval $($DIRCOLORS ~/.dircolors)
 fi
 alias ls='$LS_CMD $LS_OPTIONS -hF'
 alias ll='$LS_CMD $LS_OPTIONS -lhF'
