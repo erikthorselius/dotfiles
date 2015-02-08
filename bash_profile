@@ -14,8 +14,9 @@ export EDITOR=/usr/bin/vim
 export CC=gcc-4.2
 export PATH=$HOME/bin:$PATH
 source ~/.local/bin/bashmarks.sh
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
-export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
+#export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
+#export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
+export ANDROID_HOME=/usr/local/opt/android-sdk
 export NODE_PATH="/usr/local/lib/node_modules"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/JAVA_HOME"
 export DOCKER_HOST=tcp://$(/usr/local/bin/boot2docker ip 2>/dev/null):2376
