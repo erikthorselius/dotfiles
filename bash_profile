@@ -16,6 +16,7 @@ export PATH=$HOME/bin:$PATH
 source ~/.local/bin/bashmarks.sh
 #export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/active
 #export ANDROID_HOME="/usr/local/Cellar/android-sdk/active"
+export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export NODE_PATH="/usr/local/lib/node_modules"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/JAVA_HOME"
