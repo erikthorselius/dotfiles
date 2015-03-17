@@ -25,6 +25,7 @@ export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export HISTSIZE=20000
 export RBENV_ROOT=/usr/local/var/rbenv
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH="/usr/local/var/rbenv/versions/2.2.0/bin:$PATH"
 export PATH="/Applications/Zed.app/bin":$PATH
 shopt -s histappend
