@@ -1,11 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/erikthorselius/dev/svt/bolibompa-dashboard/dashboards'
-let g:netrw_dirhist_2='/Users/erikthorselius/dev/svt/bolibompa-dashboard/widgets/number'
-let g:netrw_dirhist_3='/Users/erikthorselius/dev/svt/svtservice-bolibompa-playlistapi/build'
-let g:netrw_dirhist_4='/Users/erikthorselius/dev/openhab/external_conf/openhab/log'
-let g:netrw_dirhist_5='/Users/regius/SparkleShare/dotfiles'
-let g:netrw_dirhist_6='/Users/regius/.ssh'
-let g:netrw_dirhist_7='/Users/regius/dev/coreos-setup/bin'
-let g:netrw_dirhist_8='/Users/regius/dev/docker-nginx/conf.d'
-let g:netrw_dirhist_9='/Users/regius/dev/docker-nginx/bin'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/regius/dev/docker-nginx/.ssl'
+let g:netrw_dirhist_2='/Users/regius/dev/docker-nginx'
+let g:netrw_dirhist_3='/Users/regius/dev/docker-nginx/.ssl'
