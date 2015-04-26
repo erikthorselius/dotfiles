@@ -77,6 +77,7 @@ elif [[ $platform == 'darwin' ]]; then
   LS_CMD=gls
   export LS_OPTIONS='--color=auto'
   eval $(gdircolors ~/.dircolors)
+  PATH=$PATH:/Applications/LightTable
 fi
 alias ls='$LS_CMD $LS_OPTIONS -hF'
 alias ll='$LS_CMD $LS_OPTIONS -lhF'
