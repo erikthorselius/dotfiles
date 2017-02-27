@@ -17,7 +17,6 @@ do
   if should_ignore "${FILE##*/}"; then continue; fi 
   echo $(readlink $TARGET)
   echo $FILE
-  #if ! [ "$(readlink $TARGET)" = "$file" ]; then echo $TARGET; fi
-  #if [ -L "$TARGET" ]; then continue; fi
-  #ln -s $file $TARGET
+  if ! [ "$(readlink $TARGET)" = "$FILE" ]; then rm $TARGET; fi
+  ln -s $FILE $TARGET
 done
