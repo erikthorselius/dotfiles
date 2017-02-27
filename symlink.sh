@@ -14,8 +14,8 @@ FILES="$( cd "$( dirname "$0" )" && pwd )/*"
 for file in $FILES
 do
   TARGET="$HOME/.${file##*/}"
-  echo $TARGET
   if should_ignore "${file##*/}"; then continue; fi 
   #if [ -L "$TARGET" ]; then continue; fi
+  echo $TARGET
   #ln -s $file $TARGET
 done
