@@ -28,7 +28,7 @@ source ~/.oh-my-git/prompt.sh
 background=237
 red='\e[0;31m'
 omg_last_symbol_color="${red}\[\033[48;5;${background}m\]"
-omg_ungit_prompt="\[\033[m\]|\[\033[1;35m\]\t\[\033[m\]|\[\e[1m\]\u\[\e[1;36m\]\[\033[m\]@\[\e[1;36m\]\h\[\033[m\]:\[\e[0m\]\[\e[1;32m\][\W]> \[\e[0m\]"
+omg_ungit_prompt="\[\033[m\]|\[\033[1;35m\]\t\[\033[m\]|\[\e[1m\]\u\[\e[1;36m\]\[\033[m\]:\[\e[0m\]\[\e[1;32m\][\W]> \[\e[0m\]"
 omg_second_line="\[\033[m\]|\[\033[1;35m\]\t\[\033[m\]|\[\e[1m\]\u\[\e[1;36m\]\[\033[m\]@\[\e[1;36m\]\h\[\033[m\]:\[\e[0m\]\[\e[1;32m\][\W]> \[\e[0m\]"
 
 if [ $platform == 'darwin' ] && [ -f `brew --prefix`/etc/bash_completion ]; then
