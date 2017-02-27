@@ -2,8 +2,6 @@ call pathogen#infect()
 set nocompatible          " We're running Vim, not Vi!
 " load indent file for the current filetype
 syntax enable
-set background=dark
-colorscheme solarized
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
