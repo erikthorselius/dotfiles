@@ -1,24 +1,6 @@
-[submodule "vim/bundle/vim-ruby"]
-	path = vim/bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule "vim/bundle/vim-haml"]
-	path = vim/bundle/vim-haml
-	url = https://github.com/tpope/vim-haml.git
-[submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vim/bundle/rubycomplete"]
-	path = vim/bundle/rubycomplete
-	url = https://github.com/vim-scripts/rubycomplete.vim
-[submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
-	url = https://github.com/ervandew/supertab
-[submodule "vim/bundle/vim-cucumber"]
-	path = vim/bundle/vim-cucumber
-	url = https://github.com/tpope/vim-cucumber
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "oh-my-git"]
 	path = oh-my-git
 	url = https://github.com/arialdomartini/oh-my-git
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
