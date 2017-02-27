@@ -15,8 +15,7 @@ for FILE in $FILES
 do
   TARGET="$HOME/.${FILE##*/}"
   if should_ignore "${FILE##*/}"; then continue; fi 
-  #echo $(readlink $TARGET)
-  #echo $FILE
   if ! [ "$(readlink $TARGET)" = "$FILE" ]; then rm $TARGET; fi
+  if [ -L "$TARGET" ]; then continue; fi
   ln -s $FILE $TARGET
 done
