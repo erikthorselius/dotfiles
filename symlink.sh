@@ -16,7 +16,7 @@ do
   TARGET="$HOME/.${FILE##*/}"
   if should_ignore "${FILE##*/}"; then continue; fi 
   echo $TARGET
-  #echo $FILE
+  echo $FILE
   #if ! [ "$(readlink $TARGET)" = "$file" ]; then echo $TARGET; fi
   #if [ -L "$TARGET" ]; then continue; fi
   #ln -s $file $TARGET
