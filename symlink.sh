@@ -11,11 +11,13 @@ function should_ignore {
 }
 
 FILES="$( cd "$( dirname "$0" )" && pwd )/*"
-for file in $FILES
+for FILE in $FILES
 do
-  TARGET="$HOME/.${file##*/}"
-  if should_ignore "${file##*/}"; then continue; fi 
-  if ! [ "$(readlink $TARGET)" = "$file" ]; then echo $TARGET; fi
+  TARGET="$HOME/.${FILE##*/}"
+  if should_ignore "${FILE##*/}"; then continue; fi 
+  echo $TARGET
+  echo $FILE
+  #if ! [ "$(readlink $TARGET)" = "$file" ]; then echo $TARGET; fi
   #if [ -L "$TARGET" ]; then continue; fi
   #ln -s $file $TARGET
 done
