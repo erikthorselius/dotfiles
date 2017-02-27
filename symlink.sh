@@ -13,8 +13,8 @@ function should_ignore {
 FILES="$( cd "$( dirname "$0" )" && pwd )/*"
 for file in $FILES
 do
-  echo $file
-  #TARGET="$HOME/.${file##*/}"
+  TARGET="$HOME/.${file##*/}"
+  echo $TARGET
   #if should_ignore "${file##*/}"; then continue; fi 
   #if [ -L "$TARGET" ]; then continue; fi
   #ln -s $file $TARGET
