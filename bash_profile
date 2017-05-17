@@ -19,7 +19,7 @@ export NODE_PATH="/usr/local/lib/node_modules"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/JAVA_HOME"
 export PATH=$HOME/bin:$PATH
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
-
+export PATH="/usr/local/sbin:$PATH"
 if [ -f ~/.sensible.bash ]; then
    source ~/.sensible.bash
 fi
@@ -54,4 +54,3 @@ alias ll='$LS_CMD $LS_OPTIONS -lhF'
 alias l='$LS_CMD $LS_OPTIONS -lAhF'
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-export PATH="/usr/local/sbin:$PATH"
