@@ -54,3 +54,4 @@ alias ll='$LS_CMD $LS_OPTIONS -lhF'
 alias l='$LS_CMD $LS_OPTIONS -lAhF'
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+export PATH="/usr/local/sbin:$PATH"
