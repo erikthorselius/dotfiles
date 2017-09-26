@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/regius/dev/docker-nginx/.ssl'
-let g:netrw_dirhist_2='/Users/regius/dev/docker-nginx'
-let g:netrw_dirhist_3='/Users/regius/dev/docker-nginx/.ssl'
-let g:netrw_dirhist_4='/Users/regius/dev/docker-haproxy'
-let g:netrw_dirhist_5='/Users/regius/dev/HomeMirror/app/build'
-let g:netrw_dirhist_6='/Users/regius/dev/sincity/services'
-let g:netrw_dirhist_7='/Users/erikthorselius/dev/accedo/via-mw-adapter-web/src/main/java/tv/accedo/via/middleware/common'
-let g:netrw_dirhist_8='/Users/erikthorselius/dev/accedo/via-mw-ovp-brightcove/docker'
-let g:netrw_dirhist_9='/Users/erikthorselius/dev/accedo/via-mw/build'
+let g:netrw_dirhist_cnt =0
