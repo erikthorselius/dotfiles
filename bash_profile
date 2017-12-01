@@ -19,6 +19,7 @@ export NODE_PATH="/usr/local/lib/node_modules"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/JAVA_HOME"
 export PATH=$HOME/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
+export PATH="~/Library/Python/2.7/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:/Users/erikthorselius/dev/accedo/via-mw/bin
 export PATH="/usr/local/sbin:$PATH"
