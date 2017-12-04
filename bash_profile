@@ -23,6 +23,7 @@ export PATH="~/Library/Python/2.7/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:/Users/erikthorselius/dev/accedo/via-mw/bin
 export PATH="/usr/local/sbin:$PATH"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 if [ -f ~/.sensible.bash ]; then
    source ~/.sensible.bash
 fi
