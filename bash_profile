@@ -24,6 +24,7 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:/Users/erikthorselius/dev/accedo/via-mw/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=/Users/erikthorselius/dev/accedo/via-mw/image-resizer
 if [ -f ~/.sensible.bash ]; then
    source ~/.sensible.bash
 fi
