@@ -11,9 +11,10 @@
 [alias]
         lol = log --graph --decorate --pretty=oneline --abbrev-commit
         lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-
 [core]
 	editor = /usr/bin/vim
 	autocrlf = input
 [pull]
 	rebase = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
