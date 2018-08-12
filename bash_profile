@@ -15,6 +15,7 @@ export EDITOR=/usr/bin/vim
 export CC=gcc
 export PATH=$HOME/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
+source ~/.oh-my-git/prompt.sh
 if [[ $platform == 'linux' ]]; then
   LS_CMD=ls
   export LS_OPTIONS='--color=auto'
