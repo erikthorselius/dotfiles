@@ -22,3 +22,4 @@ if [ -x ~/.dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+export GOPATH=$HOME/go
