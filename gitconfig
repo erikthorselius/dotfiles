@@ -16,5 +16,5 @@
 	autocrlf = input
 [pull]
 	rebase = true
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+[url "stash:"]
+	insteadOf = https://stash.trioptima.net/scm
