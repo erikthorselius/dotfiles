@@ -6,7 +6,6 @@ fi
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-export GOPATH=$HOME/go
 # Path to your oh-my-bash installation.
 export OSH=/home/erikthorselius/.oh-my-bash
 
@@ -57,7 +56,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(core rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(core git bashmarks progress)
-
 if tty -s
 then
   source $OSH/oh-my-bash.sh
@@ -93,6 +91,7 @@ fi
 # alias ohmybash="mate ~/.oh-my-bash"
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias docker-rm-all='docker rm -f $(docker ps -a -q)'
 if [ -x ~/.dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -103,3 +102,11 @@ if [ -x ~/.dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+alias ']'='xdg-open'
+function docker-test-filter() {
+    docker exec -ti $1 sh -c "export PYTHONPATH=/app/lib/&&py.test --capture=no --junit-xml=.test-report.xml -vv tests -s -x -k $2"
+}
+export PATH=$PATH:~/.yarn/bin
+export PATH=$PATH:~/bin
+export GOPATH=$HOME/go
