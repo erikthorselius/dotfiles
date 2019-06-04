@@ -94,6 +94,8 @@ alias pbpaste='xclip -selection clipboard -o'
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
 alias assh='ssh-agent ssh -F ~/.ssh/config.assh'
 alias ascp='scp -F ~/.ssh/config.assh'
+alias upload-keepass='rclone sync /home/erikthorselius/Drive/Private drive:Privat'
+alias download-keepass='rclone sync drive:Privat /home/erikthorselius/Drive/Private'
 
 if [ -x ~/.dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
