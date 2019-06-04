@@ -56,10 +56,10 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(core rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(core git bashmarks progress)
-if tty -s
-then
-  source $OSH/oh-my-bash.sh
-fi
+#if tty -s
+#then
+#  source $OSH/oh-my-bash.sh
+#fi
 
 # User configuration
 
@@ -92,6 +92,9 @@ fi
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
+alias assh='ssh-agent ssh -F ~/.ssh/config.assh'
+alias ascp='scp -F ~/.ssh/config.assh'
+
 if [ -x ~/.dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'

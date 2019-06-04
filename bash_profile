@@ -20,3 +20,4 @@ export CC=gcc
 export PATH=$HOME/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/opt/idea/bin:$PATH"
+export OS_USERNAME="erikt"
