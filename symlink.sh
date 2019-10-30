@@ -10,12 +10,14 @@ function should_ignore {
   return 1 
 }
 
-FILES="$( cd "$( dirname "$0" )" && pwd )/*"
+FILES="$( find . -type f -not -path '*/\.*' -not -path './oh-my-bash/*' -not -path .)"
 for FILE in $FILES
 do
-  TARGET="$HOME/.${FILE##*/}"
+  TARGET="$HOME/.${FILE#*/}"
   if should_ignore "${FILE##*/}"; then continue; fi 
   if ! [ "$(readlink $TARGET)" = "$FILE" ]; then rm $TARGET; fi
   if [ -L "$TARGET" ]; then continue; fi
-  ln -s $FILE $TARGET
+  ln -s $(realpath $FILE) $TARGET
 done
+
+ln -s $(realpath ./oh-my-bash) $HOME/.oh-my-bash

@@ -11,7 +11,7 @@ export OSH=/home/erikthorselius/.oh-my-bash
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="powerline-multiline"
+OSH_THEME="powerline-naked"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,13 +56,9 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(core rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(core git bashmarks progress)
-#if tty -s
-#then
-#  source $OSH/oh-my-bash.sh
-#fi
 
 # User configuration
-
+source $OSH/oh-my-bash.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
