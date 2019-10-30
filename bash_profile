@@ -45,6 +45,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:~/.yarn/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.public-bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/opt/idea/bin

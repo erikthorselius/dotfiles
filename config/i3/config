@@ -171,7 +171,6 @@ bar {
 	tray_output primar
 }
 exec "~/.screenlayout/layout.sh"
-exec "locale-auto-toggle.sh"
 bindsym $mod+Escape exec "i3lock --color 000000"
 bindsym $mod+greater exec "sp next"
 bindsym $mod+less exec "sp prev"
@@ -179,4 +178,4 @@ bindsym $mod+slash exec "sp play"
 bindsym Print exec gnome-screenshot -i 
 bindsym $mod+Print exec gnome-screenshot -a
 bindsym $mod+g exec gpaste-client ui
-bindsym $mod+space exec "locale-toggle.sh"
+bindsym $mod+space exec "~/.public-bin/locale-toggle.sh"

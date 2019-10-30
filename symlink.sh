@@ -17,7 +17,7 @@ do
   if should_ignore "${FILE##*/}"; then continue; fi 
   if ! [ "$(readlink $TARGET)" = "$FILE" ]; then rm $TARGET; fi
   if [ -L "$TARGET" ]; then continue; fi
-  ln -s $(realpath $FILE) $TARGET
+  ln -vs $(realpath $FILE) $TARGET
 done
 
 ln -s $(realpath ./oh-my-bash) $HOME/.oh-my-bash

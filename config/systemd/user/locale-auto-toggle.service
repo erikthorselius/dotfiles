@@ -1,0 +1,8 @@
+[Unit]
+Description=Run locale-auto-toggle
+
+[Service]
+ExecStart=/usr/bin/env bash -c "~/.public-bin/locale-auto-toggle.sh"
+
+[Install]
+WantedBy=default.target
