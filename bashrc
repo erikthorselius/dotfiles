@@ -89,29 +89,4 @@ plugins=(core git bashmarks progress)
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-alias docker-rm-all='docker rm -f $(docker ps -a -q)'
-alias assh='ssh-agent ssh -F ~/.ssh/config.assh'
-alias ascp='scp -F ~/.ssh/config.assh'
-alias upload-keepass='rclone sync /home/erikthorselius/Drive/Private drive:Privat'
-alias download-keepass='rclone sync drive:Privat /home/erikthorselius/Drive/Private'
 
-if [ -x ~/.dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-alias ']'='xdg-open'
-function docker-test-filter() {
-    docker exec -ti $1 sh -c "export PYTHONPATH=/app/lib/&&py.test --capture=no --junit-xml=.test-report.xml -vv tests -s -x -k $2"
-}
-export PATH=$PATH:~/.yarn/bin
-export PATH=$PATH:~/bin
-export GOPATH=$HOME/go
