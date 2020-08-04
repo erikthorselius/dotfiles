@@ -50,6 +50,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/opt/idea/bin
 export PATH=$PATH:/usr/local/go/bin
+export KUBECONFIG=~/.kube/pi-config
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
@@ -58,3 +59,5 @@ alias ascp='scp -F ~/.ssh/config.assh'
 alias upload-keepass='rclone sync /home/erikthorselius/Drive/Private drive:Privat'
 alias download-keepass='rclone sync drive:Privat /home/erikthorselius/Drive/Private'
 alias ']'='xdg-open'
+alias k=kubectl-1.14
+complete -F __start_kubectl k
