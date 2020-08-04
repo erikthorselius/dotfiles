@@ -84,5 +84,33 @@ source $OSH/oh-my-bash.sh
 #
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
-# alias ohmybash="mate ~/.oh-my-bash"
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias docker-rm-all='docker rm -f $(docker ps -a -q)'
+alias assh='ssh-agent ssh -F ~/.ssh/config.assh'
+alias ascp='scp -F ~/.ssh/config.assh'
+alias upload-keepass='rclone sync -P /home/erikthorselius/Drive/Private drive:Privat'
+alias download-keepass='rclone sync -P drive:Privat /home/erikthorselius/Drive/Private'
+alias upload-beersmith='rclone sync -P /home/erikthorselius/Drive/beersmith3 drive:beersmith3'
+alias download-beersmith='rclone sync -P drive:beersmith3 /home/erikthorselius/Drive/beersmith3'
+alias beersmith='sudo docker run -ti --rm --init -e DISPLAY=$DISPLAY -u $UID:$(id -g $USER) -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/snd:/dev/snd:rw -v /home/erikthorselius:/home/beersmith3 bcrochet/beersmith3'
 
+if [ -x ~/.dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+alias ']'='xdg-open'
+function docker-test-filter() {
+    docker exec -ti $1 sh -c "export PYTHONPATH=/app/lib/&&py.test --capture=no --junit-xml=.test-report.xml -vv tests -s -x -k $2"
+}
+export PATH=$PATH:~/.yarn/bin
+export PATH=$PATH:~/bin
+export PATH=$PATH:/usr/lib/jvm/graalvm/bin
+export GOPATH=$HOME/go
