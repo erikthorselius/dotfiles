@@ -40,7 +40,7 @@ export CC=gcc
 export OS_USERNAME="erikt"
 export TERMINAL=gnome-terminal
 export GOROOT="/usr/local/go"
-export GOPRIVATE=stash.trioptima.net/*
+export GOPRIVATE="stash.trioptima.net"
 export GOPATH=$HOME/go
 export PATH=$PATH:~/.yarn/bin
 export PATH=$PATH:$HOME/go/bin
@@ -50,14 +50,16 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/opt/idea/bin
 export PATH=$PATH:/usr/local/go/bin
-export KUBECONFIG=~/.kube/pi-config
+export PATH=$PATH:/snap/bin
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
 alias assh='ssh-agent ssh -F ~/.ssh/config.assh'
 alias ascp='scp -F ~/.ssh/config.assh'
-alias upload-keepass='rclone sync /home/erikthorselius/Drive/Private drive:Privat'
-alias download-keepass='rclone sync drive:Privat /home/erikthorselius/Drive/Private'
+alias upload-keepass='rclone sync /home/erikt/Drive/Private drive:Privat'
+alias download-keepass='rclone sync drive:Privat /home/erikt/Drive/Private'
 alias ']'='xdg-open'
 alias k=kubectl-1.14
 complete -F __start_kubectl k
+function kssh { ssh -A core@$(terraform output bastion_ip) "$*"; }
+function kssh-vip { ssh -A core@$(terraform output ip) "$*"; }

@@ -7,7 +7,7 @@ fi
 # export SYSTEMD_PAGER=
 
 # Path to your oh-my-bash installation.
-export OSH=/home/erikthorselius/.oh-my-bash
+export OSH=/home/erikt/.oh-my-bash
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -89,11 +89,11 @@ alias pbpaste='xclip -selection clipboard -o'
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
 alias assh='ssh-agent ssh -F ~/.ssh/config.assh'
 alias ascp='scp -F ~/.ssh/config.assh'
-alias upload-keepass='rclone sync -P /home/erikthorselius/Drive/Private drive:Privat'
-alias download-keepass='rclone sync -P drive:Privat /home/erikthorselius/Drive/Private'
-alias upload-beersmith='rclone sync -P /home/erikthorselius/Drive/beersmith3 drive:beersmith3'
-alias download-beersmith='rclone sync -P drive:beersmith3 /home/erikthorselius/Drive/beersmith3'
-alias beersmith='sudo docker run -ti --rm --init -e DISPLAY=$DISPLAY -u $UID:$(id -g $USER) -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/snd:/dev/snd:rw -v /home/erikthorselius:/home/beersmith3 bcrochet/beersmith3'
+alias upload-keepass='rclone sync -P /home/erikt/Drive/Private drive:Privat'
+alias download-keepass='rclone sync -P drive:Privat /home/erikt/Drive/Private'
+alias upload-beersmith='rclone sync -P /home/erikt/Drive/beersmith3 drive:beersmith3'
+alias download-beersmith='rclone sync -P drive:beersmith3 /home/erikt/Drive/beersmith3'
+alias beersmith='sudo docker run -ti --rm --init -e DISPLAY=$DISPLAY -u $UID:$(id -g $USER) -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/snd:/dev/snd:rw -v /home/erikt:/home/beersmith3 bcrochet/beersmith3'
 
 if [ -x ~/.dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
