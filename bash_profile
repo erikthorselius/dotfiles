@@ -58,8 +58,12 @@ alias assh='ssh-agent ssh -F ~/.ssh/config.assh'
 alias ascp='scp -F ~/.ssh/config.assh'
 alias upload-keepass='rclone sync /home/erikt/Drive/Private drive:Privat'
 alias download-keepass='rclone sync drive:Privat /home/erikt/Drive/Private'
+alias dc='docker-compose'
 alias ']'='xdg-open'
-alias k=kubectl-1.14
 complete -F __start_kubectl k
 function kssh { ssh -A core@$(terraform output bastion_ip) "$*"; }
 function kssh-vip { ssh -A core@$(terraform output ip) "$*"; }
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export FLUX_FORWARD_NAMESPACE=flux
+
