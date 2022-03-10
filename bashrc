@@ -55,7 +55,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
 # Example format: plugins=(core rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(core git bashmarks progress bu golang kubectl)
+plugins=(git bashmarks progress bu golang kubectl)
 
 # User configuration
 source $OSH/oh-my-bash.sh
