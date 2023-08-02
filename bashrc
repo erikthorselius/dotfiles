@@ -113,4 +113,5 @@ function docker-test-filter() {
 export PATH=$PATH:~/.yarn/bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:/usr/lib/jvm/graalvm/bin
+export PATH=$PATH:/snap/bin
 export GOPATH=$HOME/go

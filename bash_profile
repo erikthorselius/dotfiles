@@ -58,7 +58,7 @@ alias assh='ssh-agent ssh -F ~/.ssh/config.assh'
 alias ascp='scp -F ~/.ssh/config.assh'
 alias upload-keepass='rclone sync /home/erikt/Drive/Private drive:Privat'
 alias download-keepass='rclone sync drive:Privat /home/erikt/Drive/Private'
-alias dc='docker-compose'
+alias dc='docker compose'
 alias ']'='xdg-open'
 complete -F __start_kubectl k
 function kssh { ssh -A core@$(terraform output bastion_ip) "$*"; }
