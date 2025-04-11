@@ -10,8 +10,8 @@ export EDITOR=/usr/bin/vim
 export CC=gcc
 
 # Path setup (prepend to preserve ordering)
+PATH=$PATH:"/Applications/IntelliJ IDEA.app/Contents/MacOS
 export PATH="/opt/homebrew/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$HOME/.local/bin:$HOME/.public-bin:$HOME/bin:$HOME/go/bin:/opt/idea/bin:/usr/local/go/bin:/usr/local/sbin:$PATH"
-
 # Aliases
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
 alias dc='docker compose'
@@ -44,4 +44,18 @@ OMB_USE_SUDO=true
 
 # Source oh-my-bash
 source "$OSH/oh-my-bash.sh"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
+# Eternal bash history.
+# ---------------------
+# Undocumented feature which sets the size to "unlimited".
+# http://stackoverflow.com/questions/9457233/unlimited-bash-history
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+# Change the file location because certain bash sessions truncate .bash_history file upon close.
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+export HISTFILE=~/.bash_eternal_history
+# Force prompt to write history after every command.
+# http://superuser.com/questions/20900/bash-history-loss
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
