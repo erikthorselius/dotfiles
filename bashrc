@@ -10,7 +10,7 @@ export EDITOR=/usr/bin/vim
 export CC=gcc
 
 # Path setup (prepend to preserve ordering)
-PATH=$PATH:"/Applications/IntelliJ IDEA.app/Contents/MacOS
+PATH=$PATH:"/Applications/IntelliJ IDEA.app/Contents/MacOS"
 export PATH="/opt/homebrew/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$HOME/.local/bin:$HOME/.public-bin:$HOME/bin:$HOME/go/bin:/opt/idea/bin:/usr/local/go/bin:/usr/local/sbin:$PATH"
 # Aliases
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
@@ -44,6 +44,7 @@ OMB_USE_SUDO=true
 
 # Source oh-my-bash
 source "$OSH/oh-my-bash.sh"
+
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # Eternal bash history.
