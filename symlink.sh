@@ -1,23 +1,44 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-# from http://errtheblog.com/posts/89-huba-huba
-function should_ignore {
-  ignore=("README" "symlink.rb" "symlink.sh")
-  for ignore_file in "${ignore[@]}"
-  do
-    if [ "$ignore_file" == "$1" ]; then return 0; fi
+# Files to ignore
+IGNORED_FILES=("README" "symlink.rb" "symlink.sh")
+
+should_ignore() {
+  local filename="$1"
+  for ignore in "${IGNORED_FILES[@]}"; do
+    if [[ "$filename" == "$ignore" ]]; then
+      return 0
+    fi
   done
-  return 1 
+  return 1
 }
 
-FILES="$( find . -type f -not -path '*/\.*' -not -path './oh-my-bash/*' -not -path .)"
-for FILE in $FILES
-do
-  TARGET="$HOME/.${FILE#*/}"
-  if should_ignore "${FILE##*/}"; then continue; fi 
-  if ! [ "$(readlink $TARGET)" = "$FILE" ]; then rm $TARGET; fi
-  if [ -L "$TARGET" ]; then continue; fi
-  ln -vs $(realpath $FILE) $TARGET
-done
+# Create symlinks for dotfiles (excluding certain paths and files)
+while IFS= read -r -d '' file; do
+  filename="$(basename "$file")"
+  if should_ignore "$filename"; then
+    echo "Ignoring $filename"
+    continue
+  fi
 
-ln -s $(realpath ./oh-my-bash) $HOME/.oh-my-bash
+  rel_path="${file#./}"                    # Remove leading ./
+  target="$HOME/.${rel_path}"              # Dotfile path
+  src="$(readlink -f "$file")"
+
+  mkdir -p "$(dirname "$target")"
+
+  if [ -L "$target" ] && [ "$(readlink "$target")" == "$src" ]; then
+    echo "Already linked: $target"
+    continue
+  fi
+
+  if [ -e "$target" ]; then
+    echo "Removing existing file: $target"
+    rm -rf "$target"
+  fi
+
+  echo "Linking $src -> $target"
+  ln -vs "$src" "$target"
+done < <(find . -type f -not -path '*/\.*' -not -path './oh-my-bash/*' -print0)
+
