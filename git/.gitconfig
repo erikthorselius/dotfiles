@@ -1,0 +1,55 @@
+[user]
+    name = Erik Thorselius
+    email = erik.thorselius@tv4.se
+
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+
+[core]
+    editor = /usr/bin/vim
+    autocrlf = input
+    # Optional: Treat symlinks correctly
+    # symlinks = true
+
+[push]
+    default = current
+
+[pull]
+    rebase = true
+
+[init]
+    defaultBranch = main
+
+[pager]
+    # Needs delta installed
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    line-numbers = true
+    side-by-side = true
+    syntax-theme = Dracula
+
+[credential]
+    # For macOS
+    helper = osxkeychain
+    # Or for other systems
+    # helper = cache --timeout=3600
+
+[alias]
+    # Log aliases
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    last = log -1 HEAD
+
+    # Common commands
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    amend = commit --amend --no-edit
