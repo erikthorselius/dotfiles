@@ -11,6 +11,8 @@ BREW_PACKAGES=(
   git
   bash
   git-delta
+  docker
+  colima
 )
 
 # Dotfiles-kataloger att stowa
