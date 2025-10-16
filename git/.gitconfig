@@ -46,6 +46,7 @@
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     last = log -1 HEAD
+    recent-branches = for-each-ref --sort=-committerdate --format='%(refname:short) | %(committerdate:relative) | %(authorname) | %(subject)' refs/remotes/
 
     # Common commands
     co = checkout
@@ -53,3 +54,5 @@
     st = status
     br = branch
     amend = commit --amend --no-edit
+[url "git@github.com:"]
+	insteadOf = https://github.com/
