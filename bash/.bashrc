@@ -68,5 +68,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-# Local secrets (not checked in)
-[ -f ~/.secrets ] && source ~/.secrets
+# Local secrets (not checked in) — see README
+[ -f ~/.bash_secrets ] && source ~/.bash_secrets
