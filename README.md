@@ -26,3 +26,14 @@ cd ~/dev/dotfiles
 
 This installs the required Homebrew packages and symlinks each subdirectory
 (`bash`, `git`, `ghostty`) into `$HOME` using GNU Stow.
+
+## Local secrets
+
+Anything machine-specific or sensitive (API tokens, work-only env vars) goes
+in `~/.bash_secrets`. The file is sourced at the end of `.bashrc` if present
+and is intentionally not tracked by this repo.
+
+```bash
+# ~/.bash_secrets
+export SOME_TOKEN=...
+```

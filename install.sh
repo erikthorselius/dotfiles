@@ -5,7 +5,7 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET_DIR="$HOME"
 
-# Homebrew-paket att installera
+# Homebrew packages to install
 BREW_PACKAGES=(
   stow
   git
@@ -15,39 +15,39 @@ BREW_PACKAGES=(
   colima
 )
 
-# Dotfiles-kataloger att stowa
+# Dotfile directories to stow into $HOME
 STOW_DIRS=(
   git
   ghostty
   bash
 )
 
-# Installera brew-paket om de inte redan finns
+# Install brew packages that aren't already present
 install_brew_packages() {
   if ! command -v brew &>/dev/null; then
-    echo "Homebrew saknas! Installera det först: https://brew.sh/"
+    echo "Homebrew is missing. Install it first: https://brew.sh/"
     exit 1
   fi
 
-  echo "Installerar Homebrew-paket..."
+  echo "Installing Homebrew packages..."
   for pkg in "${BREW_PACKAGES[@]}"; do
     if ! brew list "$pkg" &>/dev/null; then
       echo " - $pkg"
       brew install "$pkg"
     else
-      echo " - $pkg (redan installerat)"
+      echo " - $pkg (already installed)"
     fi
   done
 }
 
-# Symlinka dotfiles med stow
+# Symlink dotfiles into $HOME with GNU stow
 stow_dotfiles() {
-  echo "Stowar dotfiles..."
+  echo "Stowing dotfiles..."
   for dir in "${STOW_DIRS[@]}"; do
     echo " - $dir"
     stow -d "$DOTFILES_DIR" -t "$TARGET_DIR" "$dir"
   done
-  echo "Klart!"
+  echo "Done!"
 }
 
 main() {
