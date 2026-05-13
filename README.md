@@ -17,3 +17,12 @@ This README is mostly because I forget things.
 git clone https://github.com/erikthorselius/dotfiles.git ~/dev/dotfiles
 cd ~/dev/dotfiles
 ```
+
+### 2. Run the installer
+
+```bash
+./install.sh
+```
+
+This installs the required Homebrew packages and symlinks each subdirectory
+(`bash`, `git`, `ghostty`) into `$HOME` using GNU Stow.
