@@ -38,22 +38,16 @@ if [ -f ~/.dircolors ] && command -v gdircolors >/dev/null 2>&1; then
   alias egrep='egrep --color=auto'
 fi
 
-# Path to oh-my-bash
+# oh-my-bash (skip silently if not installed)
 export OSH="$HOME/.oh-my-bash"
-
-# Theme
-OSH_THEME="powerbash10k"
-
-# Plugins and completions
-completions=(git ssh)
-aliases=(general)
-plugins=(git bashmarks)
-
-# Enable sudo usage in OMB
-OMB_USE_SUDO=true
-
-# Source oh-my-bash
-source "$OSH/oh-my-bash.sh"
+if [ -r "$OSH/oh-my-bash.sh" ]; then
+  OSH_THEME="powerbash10k"
+  completions=(git ssh)
+  aliases=(general)
+  plugins=(git bashmarks)
+  OMB_USE_SUDO=true
+  source "$OSH/oh-my-bash.sh"
+fi
 
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
