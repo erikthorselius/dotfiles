@@ -11,8 +11,6 @@
 [core]
     editor = /usr/bin/vim
     autocrlf = input
-    # Optional: Treat symlinks correctly
-    # symlinks = true
 
 [push]
     default = current
@@ -36,10 +34,7 @@
     syntax-theme = Dracula
 
 [credential]
-    # For macOS
     helper = osxkeychain
-    # Or for other systems
-    # helper = cache --timeout=3600
 
 [alias]
     # Log aliases
