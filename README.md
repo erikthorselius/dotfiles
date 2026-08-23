@@ -5,7 +5,7 @@ This repository contains my personal dotfiles, managed using [GNU Stow](https://
 This README is mostly because I forget things. 
 ## Features
 
-- Terminal configurations (`bash`, `ghostty`)
+- Terminal configurations (`bash`, `ghostty`, `tmux`)
 - Git configuration
 - Automated setup via `install.sh`
 
@@ -25,7 +25,7 @@ cd ~/dev/dotfiles
 ```
 
 This installs the required Homebrew packages and symlinks each subdirectory
-(`bash`, `git`, `ghostty`) into `$HOME` using GNU Stow.
+(`bash`, `git`, `ghostty`, `tmux`) into `$HOME` using GNU Stow.
 
 ## Local secrets
 

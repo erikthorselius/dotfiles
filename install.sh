@@ -20,6 +20,7 @@ STOW_DIRS=(
   git
   ghostty
   bash
+  tmux
 )
 
 # Install brew packages that aren't already present
