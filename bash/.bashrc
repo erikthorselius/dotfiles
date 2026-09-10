@@ -70,3 +70,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Local secrets (not checked in) — see README
 [ -f ~/.bash_secrets ] && source ~/.bash_secrets
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
