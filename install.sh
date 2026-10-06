@@ -13,6 +13,7 @@ BREW_PACKAGES=(
   git-delta
   docker
   colima
+  zed
 )
 
 # Dotfile directories to stow into $HOME
@@ -21,6 +22,7 @@ STOW_DIRS=(
   ghostty
   bash
   tmux
+  zed
 )
 
 # Install brew packages that aren't already present
@@ -44,6 +46,8 @@ install_brew_packages() {
 # Symlink dotfiles into $HOME with GNU stow
 stow_dotfiles() {
   echo "Stowing dotfiles..."
+  # Pre-create so stow links files, not the whole dir (Zed keeps state there)
+  mkdir -p "$TARGET_DIR/.config/zed"
   for dir in "${STOW_DIRS[@]}"; do
     echo " - $dir"
     stow -d "$DOTFILES_DIR" -t "$TARGET_DIR" "$dir"

@@ -6,6 +6,7 @@ This README is mostly because I forget things.
 ## Features
 
 - Terminal configurations (`bash`, `ghostty`, `tmux`)
+- Zed editor settings (`zed`, only tracked files, not Zed state like `prompts/`)
 - Git configuration
 - Automated setup via `install.sh`
 
@@ -25,7 +26,7 @@ cd ~/dev/dotfiles
 ```
 
 This installs the required Homebrew packages and symlinks each subdirectory
-(`bash`, `git`, `ghostty`, `tmux`) into `$HOME` using GNU Stow.
+(`bash`, `git`, `ghostty`, `tmux`, `zed`) into `$HOME` using GNU Stow.
 
 ## Local secrets
 
