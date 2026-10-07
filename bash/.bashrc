@@ -8,21 +8,26 @@ esac
 export LC_CTYPE=sv_SE.UTF-8
 export EDITOR=/usr/bin/vim
 export DOCKER_BUILDKIT=1
+export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
 
 # Path setup
 export PATH="\
 /opt/homebrew/bin:\
-/opt/homebrew/opt/coreutils/libexec/gnubin:\
 /opt/homebrew/opt/e2fsprogs/bin:\
 /opt/homebrew/opt/e2fsprogs/sbin:\
 $HOME/.local/bin:\
 $HOME/.public-bin:\
 $HOME/bin:\
+$HOME/bin/tv4:\
 $HOME/go/bin:\
 /usr/local/go/bin:\
 /usr/local/sbin:\
 /Applications/IntelliJ IDEA.app/Contents/MacOS:\
 $PATH"
+# GNU coreutils last, so /usr/bin wins for stat, cp, ls and friends.
+# Scripts assuming BSD flags (e.g. stat -f) break when GNU shadows them.
+# GNU versions stay reachable via the g-prefix: gstat, gcp, gls, gdate.
+export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/sbin"
 
 # Aliases
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
@@ -68,10 +73,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
+# direnv
+eval "$(direnv hook bash)"
+
 # Local secrets (not checked in) — see README
 [ -f ~/.bash_secrets ] && source ~/.bash_secrets
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
-
