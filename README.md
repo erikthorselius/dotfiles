@@ -8,6 +8,7 @@ This README is mostly because I forget things.
 - Terminal configurations (`bash`, `ghostty`, `tmux`)
 - Zed editor settings (`zed`, only tracked files, not Zed state like `prompts/`)
 - Git configuration
+- Karabiner-Elements config and the `U.S. Svenska` keyboard layout (see below)
 - Automated setup via `install.sh`
 
 ## Installation
@@ -27,6 +28,20 @@ cd ~/dev/dotfiles
 
 This installs the required Homebrew packages and symlinks each subdirectory
 (`bash`, `git`, `ghostty`, `tmux`, `zed`) into `$HOME` using GNU Stow.
+
+## Swedish letters on a US keyboard
+
+`keyboard/layouts/U.S. Svenska.keylayout` is U.S. plus å/ä/ö on keys an ANSI
+keyboard lacks (ISO §, JIS ¥ and JIS _). Karabiner (`karabiner/`) sends those
+keys for Caps/right ⌥ + `[` `'` `;`, so apps get å/ä/ö without Option held.
+Apps that read ⌥ as Alt (Berth, WhatsApp, terminals) then type them fine.
+Caps/right ⌥ + `i` `j` `k` `l` are the arrow keys.
+
+After `./install.sh`, log out and in, then add **U.S. Svenska** under System
+Settings → Keyboard → Input Sources and remove U.S.
+
+To rebuild the layout from the current one: `swift keyboard/tools/dump-layout.swift > us.json`
+then `python3 keyboard/tools/build-layout.py us.json "keyboard/layouts/U.S. Svenska.keylayout"`.
 
 ## Local secrets
 

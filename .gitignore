@@ -1,3 +1,6 @@
 keybase
 *.swp
 .bash_secrets
+karabiner/.config/karabiner/automatic_backups/
+karabiner/.config/karabiner/*.bak
+karabiner/.config/karabiner/*.pre-*

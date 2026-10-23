@@ -14,6 +14,7 @@ BREW_PACKAGES=(
   docker
   colima
   zed
+  karabiner-elements
 )
 
 # Dotfile directories to stow into $HOME
@@ -23,6 +24,7 @@ STOW_DIRS=(
   bash
   tmux
   zed
+  karabiner
 )
 
 # Install brew packages that aren't already present
@@ -48,6 +50,10 @@ stow_dotfiles() {
   echo "Stowing dotfiles..."
   # Pre-create so stow links files, not the whole dir (Zed keeps state there)
   mkdir -p "$TARGET_DIR/.config/zed"
+  # Karabiner replaces karabiner.json on save, so the whole dir must be the symlink
+  if [[ -d "$TARGET_DIR/.config/karabiner" && ! -L "$TARGET_DIR/.config/karabiner" ]]; then
+    mv "$TARGET_DIR/.config/karabiner" "$TARGET_DIR/.config/karabiner.backup.$(date +%Y%m%d%H%M%S)"
+  fi
   for dir in "${STOW_DIRS[@]}"; do
     echo " - $dir"
     stow -d "$DOTFILES_DIR" -t "$TARGET_DIR" "$dir"
@@ -55,9 +61,21 @@ stow_dotfiles() {
   echo "Done!"
 }
 
+# Keyboard layouts are copied, macOS ignores symlinked ones
+install_keyboard_layouts() {
+  echo "Installing keyboard layouts..."
+  local dest="$HOME/Library/Keyboard Layouts"
+  mkdir -p "$dest"
+  for layout in "$DOTFILES_DIR"/keyboard/layouts/*.keylayout; do
+    echo " - $(basename "$layout")"
+    cp "$layout" "$dest/"
+  done
+}
+
 main() {
   install_brew_packages
   stow_dotfiles
+  install_keyboard_layouts
 }
 
 main "$@"
