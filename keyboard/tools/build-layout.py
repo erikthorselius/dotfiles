@@ -17,8 +17,9 @@ SWEDISH = {10: ("å", "Å"), 94: ("ä", "Ä"), 93: ("ö", "Ö")}
 
 
 def attr(s):
-    out = "".join(c if 0x20 <= ord(c) < 0x7F or ord(c) > 0xA0 else f"&#x{ord(c):04X};" for c in s)
-    return '"' + out.replace("&#x", "\0").replace("&", "&amp;").replace("\0", "&#x").replace('"', "&quot;").replace("<", "&lt;").replace(">", "&gt;") + '"'
+    # macOS's keylayout parser yields empty output for named entities like &lt;
+    plain = lambda c: (0x20 <= ord(c) < 0x7F and c not in "&\"<>") or ord(c) > 0xA0
+    return '"' + "".join(c if plain(c) else f"&#x{ord(c):04X};" for c in s) + '"'
 
 
 def main(src, dst):

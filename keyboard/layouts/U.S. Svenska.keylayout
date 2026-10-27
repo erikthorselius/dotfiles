@@ -188,7 +188,7 @@
       <key code="23" output="%"/>
       <key code="24" output="+"/>
       <key code="25" output="("/>
-      <key code="26" output="&amp;"/>
+      <key code="26" output="&#x0026;"/>
       <key code="27" output="_"/>
       <key code="28" output="*"/>
       <key code="29" output=")"/>
@@ -201,15 +201,15 @@
       <key code="36" output="&#x000D;"/>
       <key code="37" output="L"/>
       <key code="38" action="k38_shift"/>
-      <key code="39" output="&quot;"/>
+      <key code="39" output="&#x0022;"/>
       <key code="40" output="K"/>
       <key code="41" output=":"/>
       <key code="42" output="|"/>
-      <key code="43" output="&lt;"/>
+      <key code="43" output="&#x003C;"/>
       <key code="44" output="?"/>
       <key code="45" action="k45_shift"/>
       <key code="46" output="M"/>
-      <key code="47" output="&gt;"/>
+      <key code="47" output="&#x003E;"/>
       <key code="48" output="&#x0009;"/>
       <key code="49" action="k49_shift"/>
       <key code="50" output="~"/>
