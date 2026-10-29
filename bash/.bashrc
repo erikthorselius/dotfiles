@@ -8,7 +8,6 @@ esac
 export LC_CTYPE=sv_SE.UTF-8
 export EDITOR=/usr/bin/vim
 export DOCKER_BUILDKIT=1
-export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
 
 # Homebrew lives in /opt/homebrew on Apple Silicon and /usr/local on Intel.
 if [ -x /opt/homebrew/bin/brew ]; then
@@ -38,8 +37,36 @@ $PATH"
 # GNU versions stay reachable via the g-prefix: gstat, gcp, gls, gdate.
 export PATH="$PATH:$DOTFILES_BREW_PREFIX/opt/coreutils/libexec/gnubin:$DOTFILES_BREW_PREFIX/sbin"
 
-# Aliases
-alias docker-rm-all='docker rm -f $(docker ps -a -q)'
+# Keep PATH stable when this file is sourced more than once.
+dotfiles_dedupe_path() {
+  local entry deduped=
+  local -a entries
+  IFS=: read -r -a entries <<< "$PATH"
+  for entry in "${entries[@]}"; do
+    [ -n "$entry" ] || continue
+    case ":$deduped:" in
+      *":$entry:"*) ;;
+      *) deduped="${deduped:+$deduped:}$entry" ;;
+    esac
+  done
+  PATH="$deduped"
+}
+
+# Docker
+docker_rm_all() {
+  local container_ids answer
+  container_ids="$(docker ps -aq)"
+  if [ -z "$container_ids" ]; then
+    echo "No containers to remove."
+    return 0
+  fi
+  read -r -p "Remove all Docker containers? [y/N] " answer
+  case "$answer" in
+    y|Y) docker rm -f $container_ids ;;
+    *) echo "Cancelled." ;;
+  esac
+}
+alias docker-rm-all=docker_rm_all
 alias dc='docker compose'
 
 # Dircolors + color aliases (only if gdircolors is available)
@@ -93,3 +120,7 @@ fi
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
+
+[ -n "${NVM_BIN:-}" ] && PATH="$NVM_BIN:$PATH"
+dotfiles_dedupe_path
+unset -f dotfiles_dedupe_path

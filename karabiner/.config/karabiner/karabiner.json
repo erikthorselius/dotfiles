@@ -235,26 +235,6 @@
           }
         ]
       },
-      "devices": [
-        {
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": true,
-            "product_id": 56,
-            "vendor_id": 12431
-          },
-          "ignore": false
-        },
-        {
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": true,
-            "product_id": 19,
-            "vendor_id": 12431
-          },
-          "ignore": false
-        }
-      ],
       "simple_modifications": [
         {
           "from": {

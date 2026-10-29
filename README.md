@@ -61,8 +61,13 @@ Caps/right ⌥ + `i` `j` `k` `l` are the arrow keys.
 After `./install.sh`, log out and in, then add **U.S. Svenska** under System
 Settings → Keyboard → Input Sources and remove U.S.
 
-To rebuild the layout from the current one: `swift keyboard/tools/dump-layout.swift > us.json`
-then `python3 keyboard/tools/build-layout.py us.json "keyboard/layouts/U.S. Svenska.keylayout"`.
+To rebuild the layout, first select the standard **U.S.** input source. The dump
+tool refuses other source layouts to avoid accidentally producing a hybrid:
+
+```bash
+swift keyboard/tools/dump-layout.swift > us.json
+python3 keyboard/tools/build-layout.py us.json "keyboard/layouts/U.S. Svenska.keylayout"
+```
 
 ## Local secrets
 

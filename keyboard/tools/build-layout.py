@@ -1,5 +1,7 @@
+import argparse
 import json
-import sys
+import os
+import tempfile
 from xml.sax.saxutils import quoteattr
 
 MAPS = [
@@ -23,8 +25,15 @@ def attr(s):
 
 
 def main(src, dst):
-    us = json.load(open(src))
+    with open(src, encoding="utf-8") as src_file:
+        us = json.load(src_file)
+    if us.get("id") != "com.apple.keylayout.US":
+        raise ValueError("input must be dumped from the U.S. keyboard layout")
+
     keys = {int(k): v for k, v in us["keys"].items()}
+    missing = sorted(set(range(128)) - keys.keys())
+    if missing:
+        raise ValueError(f"input is missing key codes: {missing}")
     for code, (lower, upper) in SWEDISH.items():
         keys[code] = {"base": lower, "shift": upper, "caps": upper, "option": lower,
                       "shiftOption": upper, "capsOption": upper, "control": ""}
@@ -72,7 +81,27 @@ def main(src, dst):
     for dead, info in sorted(us["dead"].items()):
         lines.append(f'    <when state="{dead}" output={attr(info["terminator"])}/>')
     lines += ['  </terminators>', '</keyboard>', '']
-    open(dst, "w").write("\n".join(lines))
+
+    destination = os.path.abspath(dst)
+    output_mode = os.stat(destination).st_mode & 0o777 if os.path.exists(destination) else 0o644
+    fd, temporary = tempfile.mkstemp(prefix=f".{os.path.basename(dst)}.", dir=os.path.dirname(destination))
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as dst_file:
+            dst_file.write("\n".join(lines))
+        os.chmod(temporary, output_mode)
+        os.replace(temporary, destination)
+    except BaseException:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+        raise
 
 
-main(*sys.argv[1:])
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Build the U.S. Svenska macOS keyboard layout")
+    parser.add_argument("source", help="JSON produced by dump-layout.swift")
+    parser.add_argument("destination", help="output .keylayout file")
+    args = parser.parse_args()
+    try:
+        main(args.source, args.destination)
+    except (OSError, ValueError, KeyError, json.JSONDecodeError) as error:
+        parser.exit(1, f"error: {error}\n")
