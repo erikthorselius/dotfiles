@@ -10,11 +10,20 @@ export EDITOR=/usr/bin/vim
 export DOCKER_BUILDKIT=1
 export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
 
+# Homebrew lives in /opt/homebrew on Apple Silicon and /usr/local on Intel.
+if [ -x /opt/homebrew/bin/brew ]; then
+  DOTFILES_BREW_PREFIX=/opt/homebrew
+elif [ -x /usr/local/bin/brew ]; then
+  DOTFILES_BREW_PREFIX=/usr/local
+else
+  DOTFILES_BREW_PREFIX=/opt/homebrew
+fi
+
 # Path setup
 export PATH="\
-/opt/homebrew/bin:\
-/opt/homebrew/opt/e2fsprogs/bin:\
-/opt/homebrew/opt/e2fsprogs/sbin:\
+$DOTFILES_BREW_PREFIX/bin:\
+$DOTFILES_BREW_PREFIX/opt/e2fsprogs/bin:\
+$DOTFILES_BREW_PREFIX/opt/e2fsprogs/sbin:\
 $HOME/.local/bin:\
 $HOME/.public-bin:\
 $HOME/bin:\
@@ -27,7 +36,7 @@ $PATH"
 # GNU coreutils last, so /usr/bin wins for stat, cp, ls and friends.
 # Scripts assuming BSD flags (e.g. stat -f) break when GNU shadows them.
 # GNU versions stay reachable via the g-prefix: gstat, gcp, gls, gdate.
-export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/sbin"
+export PATH="$PATH:$DOTFILES_BREW_PREFIX/opt/coreutils/libexec/gnubin:$DOTFILES_BREW_PREFIX/sbin"
 
 # Aliases
 alias docker-rm-all='docker rm -f $(docker ps -a -q)'
@@ -56,7 +65,7 @@ if [ -r "$OSH/oh-my-bash.sh" ]; then
   source "$OSH/oh-my-bash.sh"
 fi
 
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+[[ -r "$DOTFILES_BREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$DOTFILES_BREW_PREFIX/etc/profile.d/bash_completion.sh"
 
 # Eternal bash history (separate file so other sessions can't truncate it)
 export HISTFILE=~/.bash_eternal_history
@@ -70,11 +79,13 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+[ -s "$DOTFILES_BREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$DOTFILES_BREW_PREFIX/opt/nvm/nvm.sh"
+[ -s "$DOTFILES_BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$DOTFILES_BREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
 
 # direnv
-eval "$(direnv hook bash)"
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
 
 # Local secrets (not checked in) — see README
 [ -f ~/.bash_secrets ] && source ~/.bash_secrets

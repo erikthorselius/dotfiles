@@ -4,18 +4,7 @@ set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET_DIR="$HOME"
-
-# Homebrew packages to install
-BREW_PACKAGES=(
-  stow
-  git
-  bash
-  git-delta
-  docker
-  colima
-  zed
-  karabiner-elements
-)
+BREWFILE="$DOTFILES_DIR/Brewfile"
 
 # Dotfile directories to stow into $HOME
 STOW_DIRS=(
@@ -35,14 +24,7 @@ install_brew_packages() {
   fi
 
   echo "Installing Homebrew packages..."
-  for pkg in "${BREW_PACKAGES[@]}"; do
-    if ! brew list "$pkg" &>/dev/null; then
-      echo " - $pkg"
-      brew install "$pkg"
-    else
-      echo " - $pkg (already installed)"
-    fi
-  done
+  brew bundle --no-upgrade --file="$BREWFILE"
 }
 
 # Symlink dotfiles into $HOME with GNU stow
@@ -54,10 +36,9 @@ stow_dotfiles() {
   if [[ -d "$TARGET_DIR/.config/karabiner" && ! -L "$TARGET_DIR/.config/karabiner" ]]; then
     mv "$TARGET_DIR/.config/karabiner" "$TARGET_DIR/.config/karabiner.backup.$(date +%Y%m%d%H%M%S)"
   fi
-  for dir in "${STOW_DIRS[@]}"; do
-    echo " - $dir"
-    stow -d "$DOTFILES_DIR" -t "$TARGET_DIR" "$dir"
-  done
+  echo "Checking for conflicts..."
+  stow --simulate --restow -d "$DOTFILES_DIR" -t "$TARGET_DIR" "${STOW_DIRS[@]}"
+  stow --restow -d "$DOTFILES_DIR" -t "$TARGET_DIR" "${STOW_DIRS[@]}"
   echo "Done!"
 }
 
@@ -73,6 +54,11 @@ install_keyboard_layouts() {
 }
 
 main() {
+  if [[ "$(uname -s)" != "Darwin" ]]; then
+    echo "This installer currently supports macOS only."
+    exit 1
+  fi
+
   install_brew_packages
   stow_dotfiles
   install_keyboard_layouts

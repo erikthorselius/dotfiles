@@ -1,6 +1,9 @@
 [user]
     name = Erik Thorselius
-    email = erik.thorselius@tv4.se
+    email = erik.thorselius@gmail.com
+
+[includeIf "gitdir:~/dev/tv4/"]
+    path = ~/.gitconfig-tv4
 
 [color]
     branch = auto
@@ -53,7 +56,7 @@
 	insteadOf = https://github.com/
 [credential "https://github.com"]
 	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !gh auth git-credential

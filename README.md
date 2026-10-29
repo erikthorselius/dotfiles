@@ -2,7 +2,8 @@
 
 This repository contains my personal dotfiles, managed using [GNU Stow](https://www.gnu.org/software/stow/).
 
-This README is mostly because I forget things. 
+This README is mostly because I forget things.
+
 ## Features
 
 - Terminal configurations (`bash`, `ghostty`, `tmux`)
@@ -26,8 +27,28 @@ cd ~/dev/dotfiles
 ./install.sh
 ```
 
-This installs the required Homebrew packages and symlinks each subdirectory
-(`bash`, `git`, `ghostty`, `tmux`, `zed`) into `$HOME` using GNU Stow.
+This installs the packages and applications in `Brewfile`, then symlinks the
+`bash`, `git`, `ghostty`, `tmux`, `zed`, and `karabiner` packages into `$HOME`
+using GNU Stow. Existing Karabiner configuration is moved to a timestamped
+backup before linking.
+
+### Use Homebrew Bash
+
+The installer installs Bash but does not change the login shell. On a new Mac,
+add Homebrew Bash to `/etc/shells` once and select it:
+
+```bash
+brew_bash="$(brew --prefix)/bin/bash"
+grep -qxF "$brew_bash" /etc/shells || echo "$brew_bash" | sudo tee -a /etc/shells
+chsh -s "$brew_bash"
+```
+
+Open a new terminal afterwards and verify with `echo "$BASH_VERSION"`.
+
+## Git identities
+
+Git uses `erik.thorselius@gmail.com` by default. Repositories below
+`~/dev/tv4/` include `~/.gitconfig-tv4` and use the TV4 email address instead.
 
 ## Swedish letters on a US keyboard
 

@@ -1,5 +1,8 @@
 keybase
 *.swp
+.DS_Store
+__pycache__/
+/us.json
 .bash_secrets
 karabiner/.config/karabiner/automatic_backups/
 karabiner/.config/karabiner/*.bak
