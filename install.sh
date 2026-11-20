@@ -16,6 +16,12 @@ STOW_DIRS=(
   karabiner
 )
 
+# Linux: no Homebrew; git, ghostty, zed and karabiner are macOS-specific
+LINUX_STOW_DIRS=(
+  bash
+  tmux
+)
+
 # Install brew packages that aren't already present
 install_brew_packages() {
   if ! command -v brew &>/dev/null; then
@@ -31,7 +37,7 @@ install_brew_packages() {
 stow_dotfiles() {
   echo "Stowing dotfiles..."
   # Pre-create so stow links files, not the whole dir (Zed keeps state there)
-  mkdir -p "$TARGET_DIR/.config/zed"
+  [[ " ${STOW_DIRS[*]} " == *" zed "* ]] && mkdir -p "$TARGET_DIR/.config/zed"
   # Karabiner replaces karabiner.json on save, so the whole dir must be the symlink
   if [[ -d "$TARGET_DIR/.config/karabiner" && ! -L "$TARGET_DIR/.config/karabiner" ]]; then
     mv "$TARGET_DIR/.config/karabiner" "$TARGET_DIR/.config/karabiner.backup.$(date +%Y%m%d%H%M%S)"
@@ -55,8 +61,13 @@ install_keyboard_layouts() {
 
 main() {
   if [[ "$(uname -s)" != "Darwin" ]]; then
-    echo "This installer currently supports macOS only."
-    exit 1
+    if ! command -v stow &>/dev/null; then
+      echo "GNU stow is missing. Install it first (e.g. sudo apt install stow)."
+      exit 1
+    fi
+    STOW_DIRS=("${LINUX_STOW_DIRS[@]}")
+    stow_dotfiles
+    return
   fi
 
   install_brew_packages

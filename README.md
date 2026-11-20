@@ -32,6 +32,11 @@ This installs the packages and applications in `Brewfile`, then symlinks the
 using GNU Stow. Existing Karabiner configuration is moved to a timestamped
 backup before linking.
 
+On Linux the installer skips Homebrew (install `stow` with the package manager
+first) and stows only `bash` and `tmux`; the other packages are macOS-specific.
+Move any existing `~/.bashrc` out of the way first, or stow refuses to
+overwrite it.
+
 ### Use Homebrew Bash
 
 The installer installs Bash but does not change the login shell. On a new Mac,
