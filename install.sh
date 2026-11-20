@@ -23,6 +23,13 @@ STOW_DIRS=(
   tmux
 )
 
+# On Linux: no Homebrew, and git/ghostty are macOS-specific
+# (osxkeychain, delta pager, Ghostty app config)
+LINUX_STOW_DIRS=(
+  bash
+  tmux
+)
+
 # Install brew packages that aren't already present
 install_brew_packages() {
   if ! command -v brew &>/dev/null; then
@@ -52,7 +59,15 @@ stow_dotfiles() {
 }
 
 main() {
-  install_brew_packages
+  if [ "$(uname -s)" = Darwin ]; then
+    install_brew_packages
+  else
+    if ! command -v stow &>/dev/null; then
+      echo "GNU stow is missing. Install it first (e.g. sudo apt install stow)."
+      exit 1
+    fi
+    STOW_DIRS=("${LINUX_STOW_DIRS[@]}")
+  fi
   stow_dotfiles
 }
 

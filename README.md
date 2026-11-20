@@ -27,6 +27,11 @@ cd ~/dev/dotfiles
 This installs the required Homebrew packages and symlinks each subdirectory
 (`bash`, `git`, `ghostty`, `tmux`) into `$HOME` using GNU Stow.
 
+On Linux the installer skips Homebrew (install `stow` with the package manager
+first) and stows only `bash` and `tmux`, since the `git` and `ghostty` configs
+are macOS-specific. Move any existing `~/.bashrc` out of the way before
+running it, or stow refuses to overwrite it.
+
 ## Local secrets
 
 Anything machine-specific or sensitive (API tokens, work-only env vars) goes
